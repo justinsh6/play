@@ -1,8 +1,9 @@
 CC=gcc
+CP=g++
 ASM=nasm
 LD=ld
 
-all: c-hello asm-hello
+all: c-hello asm-hello cpp-hello
 
 c-hello.o: hello.c
 	$(CC) -c hello.c
@@ -15,6 +16,12 @@ asm-hello.o: hello.asm
 
 asm-hello: asm-hello.o
 	$(LD) -m elf_i386 -s -o asm-hello asm-hello.o
+
+cpp-hello.o: hello.cpp
+	$(CP) -c hello.cpp -o cpp-hello.o
+
+cpp-hello: cpp-hello.o
+	$(CP) cpp-hello.o -o cpp-hello
 
 clean:
 	rm -f *.o hello c-hello asm-hello

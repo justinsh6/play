@@ -1,3 +1,4 @@
 *.o
 asm-hello
 c-hello
+cpp-hello
