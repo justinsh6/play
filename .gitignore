@@ -1,0 +1,4 @@
+*.o
+asm-hello
+c-hello.c
+
