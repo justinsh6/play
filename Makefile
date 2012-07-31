@@ -10,7 +10,7 @@ c-hello.o: hello.c
 	$(CC) -c hello.c
 
 c-hello: c-hello.o
-	$(CPP) hello.o -o c-hello
+	$(CC) hello.o -o c-hello
 
 cpp-hello.o: hello.cpp
 	$(CPP) -c hello.cpp
@@ -24,11 +24,11 @@ asm-hello.o: hello.asm
 asm-hello: asm-hello.o
 	$(LD) -m elf_i386 -s -o asm-hello asm-hello.o
 
-cpp-hello.o: hello.cpp
-	$(CP) -c hello.cpp -o cpp-hello.o
+hello.o: hello.cpp
+	$(CPP) -c hello.cpp
 
-cpp-hello: cpp-hello.o
-	$(CP) cpp-hello.o -o cpp-hello
+hello: hello.o
+	$(CPP) hello.o -o hello
 
 clean:
 	rm -f *.o hello c-hello asm-hello
