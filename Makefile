@@ -1,5 +1,6 @@
 CC=gcc
 CP=g++
+CPP=g++
 ASM=nasm
 LD=ld
 
@@ -9,7 +10,13 @@ c-hello.o: hello.c
 	$(CC) -c hello.c
 
 c-hello: c-hello.o
-	$(CC) hello.o -o c-hello
+	$(CPP) hello.o -o c-hello
+
+cpp-hello.o: hello.cpp
+	$(CPP) -c hello.cpp
+
+cpp-hello: cpp-hello.o
+	$(CPP) hello.o -o c-hello
 
 asm-hello.o: hello.asm
 	$(ASM) -f elf hello.asm -o asm-hello.o
